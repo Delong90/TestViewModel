@@ -20,13 +20,15 @@ import androidx.lifecycle.ViewModelProviders
  * This activity keeps track of the basketball score for 2 teams.
  */
 class MainActivity : AppCompatActivity() {
-    // Tracks the score for Team A
-    var scoreTeamA = 0
 
-    // Tracks the score for Team B
-    var scoreTeamB = 0
+//    // Tracks the score for Team A
+//    var scoreTeamA = 0
+//
+//    // Tracks the score for Team B
+//    var scoreTeamB = 0
 
     lateinit var mViewModel:ScoreViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         mViewModel = ViewModelProviders.of(this).get(ScoreViewModel::class.java)
         displayForTeamA(mViewModel.scoreTeamA);
         displayForTeamB(mViewModel.scoreTeamB);
-
     }
 //    fun addOneForTeamA(v: View?) {
 //        mViewModel.scoreTeamA = mViewModel.scoreTeamA + 1
@@ -103,7 +104,7 @@ class MainActivity : AppCompatActivity() {
      * Displays the given score for Team A.
      */
     fun displayForTeamA(score: Int) {
-        val scoreView = findViewById(R.id.team_a_score) as TextView
+        val scoreView = findViewById<TextView>(R.id.team_a_score)
         scoreView.text = score.toString()
     }
 
@@ -111,7 +112,7 @@ class MainActivity : AppCompatActivity() {
      * Displays the given score for Team B.
      */
     fun displayForTeamB(score: Int) {
-        val scoreView = findViewById(R.id.team_b_score) as TextView
+        val scoreView = findViewById<TextView>(R.id.team_b_score)
         scoreView.text = score.toString()
     }
 }
